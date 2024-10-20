@@ -1,0 +1,7 @@
+functional questions korbo. 
+expected and actual rakhbo shudu frontend backend dorkar na.
+je questions korbo tar upor e test cases likhbo. suppose ami questions kori nai akta topic niye but oitar upor test case likhe boshe achi. 
+amar test case er sathe koto gula case mile oitai ami dekhbo konota test case mil na hole NA lekhbo . r jodi mile pass naki fail oita dekhbo. 
+excel ba trail rails e lekhen.
+api test
+

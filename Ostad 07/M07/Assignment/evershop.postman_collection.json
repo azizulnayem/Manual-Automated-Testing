@@ -1,0 +1,328 @@
+{
+	"info": {
+		"_postman_id": "a92518c3-9db5-4c40-997e-4a07224d8519",
+		"name": "evershop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "35335342"
+	},
+	"item": [
+		{
+			"name": "search flyknit2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/search?keyword=Nike+react+phantom+run+flyknit+2",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"search"
+					],
+					"query": [
+						{
+							"key": "keyword",
+							"value": "Nike+react+phantom+run+flyknit+2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "click on black item for more details",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/men/nike-react-phantom-run-flyknit-2-182",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"men",
+						"nike-react-phantom-run-flyknit-2-182"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "s size selected",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/men/nike-react-phantom-run-flyknit-2-182?size=25&ajax=true",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"men",
+						"nike-react-phantom-run-flyknit-2-182"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "25"
+						},
+						{
+							"key": "ajax",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "black color selected",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/men/nike-react-phantom-run-flyknit-2-182?size=25&color=14&ajax=true",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"men",
+						"nike-react-phantom-run-flyknit-2-182"
+					],
+					"query": [
+						{
+							"key": "size",
+							"value": "25"
+						},
+						{
+							"key": "color",
+							"value": "14"
+						},
+						{
+							"key": "ajax",
+							"value": "true"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add to cart",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"sku\": \"NJC48508-Black-S\", \"qty\": \"2\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/cart/mine/items",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"mine",
+						"items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "view cart",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/cart/",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"cart",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item increase 2 to 3",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qty\": 1, \"action\": \"increase\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/cart/8b6da825-84e3-4b51-a6c8-10ab2c63f877/items/c4b1b7b8-749b-419b-a825-33a11f6bf013",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"8b6da825-84e3-4b51-a6c8-10ab2c63f877",
+						"items",
+						"c4b1b7b8-749b-419b-a825-33a11f6bf013"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item decrease 2 to 1",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qty\": 1, \"action\": \"decrease\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/cart/8b6da825-84e3-4b51-a6c8-10ab2c63f877/items/c4b1b7b8-749b-419b-a825-33a11f6bf013",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"8b6da825-84e3-4b51-a6c8-10ab2c63f877",
+						"items",
+						"c4b1b7b8-749b-419b-a825-33a11f6bf013"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item increase 3 to 4",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qty\": 1, \"action\": \"increase\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/cart/8b6da825-84e3-4b51-a6c8-10ab2c63f877/items/c4b1b7b8-749b-419b-a825-33a11f6bf013",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"8b6da825-84e3-4b51-a6c8-10ab2c63f877",
+						"items",
+						"c4b1b7b8-749b-419b-a825-33a11f6bf013"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "item increase 4 to 5",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"qty\": 1, \"action\": \"increase\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{URL}}/api/cart/8b6da825-84e3-4b51-a6c8-10ab2c63f877/items/c4b1b7b8-749b-419b-a825-33a11f6bf013",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"8b6da825-84e3-4b51-a6c8-10ab2c63f877",
+						"items",
+						"c4b1b7b8-749b-419b-a825-33a11f6bf013"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "deleting the cart",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/cart/8b6da825-84e3-4b51-a6c8-10ab2c63f877/items/c4b1b7b8-749b-419b-a825-33a11f6bf013",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"cart",
+						"8b6da825-84e3-4b51-a6c8-10ab2c63f877",
+						"items",
+						"c4b1b7b8-749b-419b-a825-33a11f6bf013"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "https://demo.evershop.io/",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,111 @@
+Question
+
+Simple Blog API
+
+Endpoint Documentation for Testing
+
+BASE URL: https://ria.zayedabdullah.com/ostad/simpleblog/api/v1
+
+
+1. User Registration Endpoint
+
+
+● URL: /auth/register/
+● Method: POST
+● Request Body:
+○ username (string): Required
+○ password (string): Required
+
+
+● Response:
+○ 201 Created: The user was successfully registered.
+○ Content-Type: application/json
+○ Returns the registered user's information (without the password).
+
+2. Blog List Endpoint
+● URL: /blogs/
+● Method: GET
+
+
+● Response:
+○ 200 OK: Returns a list of blogs in JSON format.
+○ Content-Type: application/json
+○ Each blog contains:
+■ title (string): Blog title.
+■ content (string): Blog content.
+■ created_at (string, date-time): Creation timestamp (read-only).
+■ creator (User object): The user who created the blog (read-only).
+
+
+● Security:
+○ Basic Authentication
+
+
+3. Blog Creation Endpoint
+● URL: /blogs/
+● Method: POST
+● Request Body:
+○ title (string): Required
+○ content (string): Required
+
+
+● Response:
+○ 201 Created: The blog was successfully created.
+○ Content-Type: application/json
+○ Returns the created blog's details including title, content, created_at, and
+creator.
+
+
+● Security:
+○ Basic Authentication
+Tasks for Testing API Endpoints Using Postman
+
+
+● Task 1: Test User Registration
+○ Use the POST method to send a request to the auth/register/ endpoint.
+○ Create a new user with username and password.
+○ Verify the response status code is 201 and check if the returned data matches
+the registered user details.
+○ Write a Test Script in Postman to verify the status code 201.
+
+
+● Task 2: Test Blog Listing
+○ Use the GET method to request the blogs/ endpoint.
+○ Ensure you provide valid authentication credentials. Use the created username
+and password to authenticate. Use Basic Auth for authentication.
+○ Verify that the response status is 200 if authentication is successful.
+○ Ensure the response contains a list of blogs in JSON format. And it follows the
+structure mentioned in the documentation.
+○ Write a Test Script in Postman to verify the status code 200.
+
+
+● Task 3: Test Blog Creation
+○ Use the POST method to send a request to the blogs/ endpoint.
+○ Create a new blog with a title and content.
+○ Ensure the correct response code 201 is returned if the blog is successfully
+created.
+○ Verify that valid authentication is required for this request.
+○ Write a Test Script in Postman to verify the status code 201.
+
+
+● Task 4: Generate Newman Report
+○ Generate a Newman report for all the scripts you’ve written for the past 3 tasks.
+
+
+Submission Guideline:
+
+
+● Save all requests to a collection.
+● Export the collection and write the URL in a text or docs file in a Google Drive folder.
+● Use Newman to generate test reports. Take a screenshot of the Newman report and
+upload that to the Google Drive folder.
+● Share the Google Drive link. Make sure it is public.
+
+
+Notes:
+● Make sure the shared Google Drive folder contains a text/doc file containing your
+Postman collection URL and a screenshot of your Newman report.
+
+
+newman run /path/to/your/exported_collection.json
+newman run /path/to/your/exported_collection.json -r cli,html
