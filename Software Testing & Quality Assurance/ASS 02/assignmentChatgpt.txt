@@ -1,0 +1,63 @@
+MODULE AI_Patrol
+
+VAR
+  state: {patrol, takeABreak, eatFood, dropSnack, shoot, dive, home};
+  action: {getFood, finishBreak, enemySightedInBreak, enemySighted, noEnemySighted, grenadeSighted};
+  timer: 0..30;
+  killed: 0..20;
+
+ASSIGN
+  init(state) := patrol;
+  next(timer) := case
+                    state = takeABreak & timer < 30: timer + 1;
+                    state = takeABreak & timer = 30: 0;
+                    state != takeABreak: 0;
+                    TRUE: timer;
+                 esac;
+
+  next(state) := case
+                   state = patrol & timer = 30: takeABreak;
+                   state = takeABreak & action = getFood: eatFood;
+                   state = takeABreak & action = finishBreak: patrol;
+                   state = eatFood: patrol;
+                   state = patrol & action = enemySighted: shoot;
+                   state = eatFood & action = enemySighted: dropSnack;
+                   state = dive & action = noEnemySighted: patrol;
+                   state = dive & action = enemySighted: shoot;
+                   state = shoot & killed < 20: patrol;
+                   state = shoot & killed = 20: home;
+                   state = patrol & action = grenadeSighted: dive;
+                   TRUE: state;
+                esac;
+                
+  next(killed) := case
+                    state = shoot: killed + 1;
+                    TRUE: killed;
+                  esac;
+
+LTLSPEC
+  -- If AI is eating and it finds an enemy, it will drop the snack.
+  G (state = eatFood -> ((action = enemySighted -> state = dropSnack) & X state != dropSnack))
+  
+  -- If AI starts shooting, it will eventually go home.
+  G (state = shoot -> F state = home)
+  
+  -- If AI is not patrolling, it will not get hungry.
+  G ((state != patrol & state != takeABreak) -> X timer = 0)
+  
+  -- The AI might not always dive.
+  G (state != dive -> X (state = dive | state = shoot | state = patrol))
+  
+  -- The AI will always go back to patrolling once its break is finished.
+  G (state = takeABreak -> (X state = patrol | X state = eatFood))
+
+  -- Custom temporal logic expressions 
+  G (state = dive -> (action = noEnemySighted U state = patrol))
+  
+  G (state = home -> killed = 20)
+  
+  G (state = takeABreak -> X (action = getFood | action = finishBreak))
+  
+  G (state = patrol -> (timer = 0 | timer < 30))
+  
+  G (state = eatFood -> (timer = 0 | timer < 30))

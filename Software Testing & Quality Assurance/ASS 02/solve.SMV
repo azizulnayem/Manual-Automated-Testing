@@ -1,0 +1,55 @@
+MODULE ai
+VAR
+         State: {patrol, takeABreak, eatFood, dropSnack, shoot, dive, home};
+         Action: {getFood, finishBreak, enemySightedInBreak, enemySighted,
+         noEnemySighted, grenadeSighted};
+         Timer: 0..30;
+         Killed: 0..20;
+ASSIGN
+         init(State) := patrol;
+         init(Timer) := 0;
+         init(Killed) := 0;
+
+         next(Timer) := 
+         case
+                  Timer >= 0 & Timer <= 30 & State= patrol: Timer + 1;
+                  Timer > 0 & Timer <= 30 & Action = finishBreak: 0;
+                  Timer= 0: 0..30;
+                  TRUE: Timer;
+         esac;
+         
+         next(Killed) :=
+         case
+                  Killed>=0 & Killed <=20 & State = shoot: Killed +1;
+                  Killed = 20 : home;
+                  Killed= 0: 0..20;
+                  TRUE: Killed;  
+         esac;
+      
+         next(State) :=
+         case
+                  State= patrol & Action = enemySighted: shoot;
+                  Timer >30 & state = patrol: getFood;
+                  State = eatFood & Action = enemySighted: finishBreak;
+                  State = eatFood & Action= enemySighted: dropSnack;
+                  State = takeBreak & Action = enemySightedInBreak: shot;
+                  State = patrol & Action = grenadeSighted: dive;
+                  State = dive & Action = enemySighted: {shoot,patrol};
+                  TRUE: {Patrol};
+         esac;
+
+
+SPEC EF(State != dive);
+SPEC AG((State=shoot) -> AF(State=home));
+SPEC AG((Action = finishBreak) -> AX(State = patrol));
+SPEC AG((State=eatFood) -> AX(State=dropSnack));
+SPEC AG((State=patrol) -> AX(State=dive))
+SPEC AG((State=takeABreak) -> !(State=hungry));
+SPEC AG((State=takeABreak) -> AF(State=patrol));
+LTLSPEC G(((State = eatFood) & (Action = enemySighted)) ->X(state = dropSnack));
+LTLSPEC G((State=takeABreak) -> !(State=shoot));
+LTLSPEC G((State = shoot) -> F(State = home));
+LTLSPEC G(State=dropSnack -> (State=enemySighted));
+LTLSPEC G((Killed<20) -> !(State=home));
+LTLSPEC G((State=dive) -> (State=grenadeSighted));
+LTLSPEC G((State != patrol) -> (State != getFood));

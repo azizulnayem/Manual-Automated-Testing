@@ -1,0 +1,75 @@
+<component name="libraryTable">
+  <library name="org.arquillian.cube:arquillian-cube-docker-junit5:1.18.1" type="repository">
+    <properties maven-id="org.arquillian.cube:arquillian-cube-docker-junit5:1.18.1" />
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-docker-junit5-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-docker-junit-rule-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-api-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-spi-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-core-reporter-api-0.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-reporter-api-0.0.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-requirement-spi-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-core-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-io-2.3.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-compress-1.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xz-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-cube-docker-1.18.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-spacelift-1.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-spacelift-api-1.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/docker-java-3.0.14.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-jaxrs-json-provider-2.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-jaxrs-base-2.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-core-2.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-databind-2.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-annotations-2.6.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jackson-module-jaxb-annotations-2.6.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jersey-apache-connector-2.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jersey-common-2.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.annotation-api-1.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jersey-guava-2.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/osgi-resource-locator-1.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.ws.rs-api-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/httpcore-4.4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/httpclient-4.5.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jersey-client-2.23.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hk2-api-2.4.0-b34.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hk2-utils-2.4.0-b34.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/aopalliance-repackaged-2.4.0-b34.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javax.inject-2.4.0-b34.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/hk2-locator-2.4.0-b34.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/javassist-3.18.1-GA.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junixsocket-common-2.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/log4j-1.2.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/junixsocket-native-common-2.0.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/native-lib-loader-2.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-codec-1.10.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jcl-over-slf4j-1.7.21.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/guava-19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bcpkix-jdk15on-1.54.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/bcprov-jdk15on-1.54.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-codec-http-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-codec-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-handler-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-buffer-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-transport-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-resolver-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-handler-proxy-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-codec-socks-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-transport-native-epoll-4.1.11.Final-linux-x86_64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-common-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-transport-native-unix-common-4.1.11.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/netty-transport-native-kqueue-4.1.11.Final-osx-x86_64.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/snakeyaml-1.19.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-core-spi-1.4.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-core-api-1.4.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-test-spi-1.4.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/arquillian-test-api-1.4.0.Final.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/shrinkwrap-api-1.2.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-lang-2.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

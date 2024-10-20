@@ -1,0 +1,50 @@
+public class TaskSchedulerTest {
+    
+    private TaskScheduler taskScheduler;
+
+    @Before
+    public void setUp() {
+        taskScheduler = new TaskScheduler();
+    }
+
+    @Test
+    public void testAddToSchedule() {
+        Task lowPriorityTask1 = new Task("LowTask1", 3); 
+        taskScheduler.addToSchedule(lowPriorityTask1);
+        assertEquals(1, taskScheduler.getTaskPosition(lowPriorityTask1));
+
+        Task lowPriorityTask2 = new Task("LowTask2", 3); 
+        taskScheduler.addToSchedule(lowPriorityTask2);
+        assertEquals(2, taskScheduler.getTaskPosition(lowPriorityTask2));
+
+        Task highPriorityTask = new Task("HighTask", 1); 
+        taskScheduler.addToSchedule(highPriorityTask);
+        assertEquals(1, taskScheduler.getTaskPosition(highPriorityTask));
+
+        Task mediumPriorityTask = new Task("MediumTask", 2); 
+        taskScheduler.addToSchedule(mediumPriorityTask);
+        assertEquals(2, taskScheduler.getTaskPosition(mediumPriorityTask));
+    }
+
+   @Test
+    public void testSetDailyLimit() {
+        taskScheduler.setDailyLimit(3); 
+
+        Task task1 = new Task("Task1", 2);
+        Task task2 = new Task("Task2", 1);
+        Task task3 = new Task("Task3", 3);
+
+        taskScheduler.addToSchedule(task1);
+        taskScheduler.addToSchedule(task2);
+        taskScheduler.addToSchedule(task3); 
+
+        
+        Task task4 = new Task("Task4", 1);
+
+        Throwable exception = assertThrows(ScheduleFullException.class, () -> {
+            taskScheduler.addToSchedule(task4);
+        });
+
+        assertEquals("Your schedule is completely full. Increase daily limit to add more tasks.", exception.getMessage());
+    }
+}

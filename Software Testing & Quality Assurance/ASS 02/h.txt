@@ -1,0 +1,10 @@
+Temporal logic expressions:
+
+CTL:
+
+AG (state = eatFood -> ((action = enemySighted -> state = dropSnack) & AX (state != dropSnack)))
+AG (state = shoot -> EF state = home)
+AG ((state != patrol & state != takeABreak) -> AX timer = 0)
+AG (state != dive -> AX (state = dive | state = shoot | state = patrol))
+AG (state = takeABreak -> AX (state = patrol | state = eatFood))
+`AG (state = dive -> (action = noEnemySighted U state = patrol))

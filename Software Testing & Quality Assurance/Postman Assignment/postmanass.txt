@@ -1,0 +1,225 @@
+For this case, mention any other information
+that I used as part of that test case. Please explain each test case - describe the
+goal/purpose, as well as the assertions i used to verify the behavior.
+
+Test Case 1: Create an employee
+
+Request Type: POST
+Request Body:
+{
+"name": "John Doe",
+"salary": "5000",
+"age": "30"
+}
+Goal/Purpose: Test if an employee can be successfully created with valid input data.
+Tests:
+Verify that the status code is 200.
+Verify that the response body contains the created employee data.
+
+Test Case 2: Get all employees
+
+Request Type: GET
+Request Body: None
+Goal/Purpose: Test if all employees can be successfully retrieved.
+Tests:
+Verify that the status code is 200.
+Verify that the response body contains an array of all employees.
+
+Test Case 3: Get employee by ID
+
+Request Type: GET
+Request Body: None
+Goal/Purpose: Test if an employee can be successfully retrieved by their ID.
+Tests:
+Verify that the status code is 200.
+Verify that the response body contains the employee data for the requested ID.
+
+note:
+If you are getting the error "Response body contains employee data for requested ID | AssertionError: expected undefined to deeply equal 5" even though the ID you provided is in the list, it could be due to the fact that the API response is not returning the expected data.
+
+To solve this error, you can try the following steps:
+
+Check the API response by inspecting the response body in Postman to ensure that the employee data for the requested ID is present.
+
+If the data is not present, double-check that you are using the correct endpoint and ID.
+
+If the data is present, try modifying the assertion in your test case. Instead of using "pm.response.json().id", you can try using "pm.response.json().data.id" or "pm.response.json().employee_id" (depending on the API response format).
+
+Alternatively, you can try changing the ID to a different value and see if that resolves the error.
+
+Finally, make sure to save and re-run your test case after making any changes.
+
+
+Test Case 4: Update an employee
+
+Request Type: PUT
+Request Body:
+{
+"name": "John Doe",
+"salary": "6000",
+"age": "35"
+}
+Goal/Purpose: Test if an employee can be successfully updated with valid input data.
+Tests:
+Verify that the status code is 200.
+Verify that the response body contains the updated employee data.
+
+Test Case 5: Delete an employee
+
+Request Type: DELETE
+Request Body: None
+Goal/Purpose: Test if an employee can be successfully deleted by their ID.
+Tests:
+Verify that the status code is 200.
+Verify that the response body contains a success message.
+
+Test Case 6: Create an employee with invalid input data
+
+Request Type: POST
+Request Body:
+{
+"name": "",
+"salary": "5000",
+"age": "30"
+}
+Goal/Purpose: Test if an employee cannot be created with invalid input data.
+Tests:
+Verify that the status code is 400.
+Verify that the response body contains an error message.
+
+Test Case 7: Get employee by invalid ID
+
+Request Type: GET
+Request Body: None
+Goal/Purpose: Test if an employee cannot be retrieved with an invalid ID.
+Tests:
+Verify that the status code is 404.
+Verify that the response body contains an error message.
+
+Test Case 8: Update an employee with invalid input data
+
+Request Type: PUT
+Request Body:
+{
+"name": "",
+"salary": "6000",
+"age": "35"
+}
+Goal/Purpose: Test if an employee cannot be updated with invalid input data.
+Tests:
+Verify that the status code is 400.
+Verify that the response body contains an error message.
+
+Test Case 9: Delete an employee with invalid ID
+
+Request Type: DELETE
+Request Body: None
+Goal/Purpose: Test if an employee cannot be deleted with an invalid ID.
+Tests:
+Verify that the status code is 404.
+Verify that the response body contains an error message.
+
+Test Case 10: Measure response time for getting all employees
+
+Request Type: GET
+Request Body: None
+Goal/Purpose: Test the response time forretrieving all employees from the API.
+Tests:
+Verify that the response time is less than 500ms.
+Verify that the status code is 200.
+Verify that the response body contains an array of all employees.
+
+Note: Response time may vary depending on network conditions, server load, and other factors. It's a good idea to run this test multiple times and take the average response time to get a more accurate measurement.
+
+Test Case 11: Create an employee with duplicate name
+
+Request Type: POST
+Request Body:
+{
+"name": "John Doe",
+"salary": "5000",
+"age": "30"
+}
+Goal/Purpose: Test if an employee with a duplicate name cannot be created.
+Tests:
+Verify that the status code is 400.
+Verify that the response body contains an error message.
+
+Test Case 12: Create an employee with a negative age
+
+Request Type: POST
+Request Body:
+{
+"name": "Jane Smith",
+"salary": "6000",
+"age": "-5"
+}
+Goal/Purpose: Test if an employee with a negative age cannot be created.
+Tests:
+Verify that the status code is 400.
+Verify that the response body contains an error message.
+
+Test Case 13: Update an employee with invalid ID
+
+Request Type: PUT
+Request Body:
+{
+"name": "John Doe",
+"salary": "6000",
+"age": "35"
+}
+Goal/Purpose: Test if an employee cannot be updated with an invalid ID.
+Tests:
+Verify that the status code is 404.
+Verify that the response body contains an error message.
+
+Test Case 14: Delete an employee with invalid ID
+
+Request Type: DELETE
+Request Body: None
+Goal/Purpose: Test if an employee cannot be deleted with an invalid ID.
+Tests:
+Verify that the status code is 404.
+Verify that the response body contains an error message.
+
+Test Case 15: Get employee by name
+
+Request Type: GET
+Request Body: None
+Goal/Purpose: Test if an employee can be successfully retrieved by their name.
+Tests:
+Verify that the status code is 200.
+Verify that the response body contains the employee data for the requested name.
+
+
+
+Azizul Islam Nayem
+how can i do all of them is postman
+To create these test cases in Postman, follow these steps:
+
+Open Postman and create a new request.
+Set the request type to the appropriate method (GET, POST, PUT, or DELETE).
+Enter the URL for the REST API endpoint.
+If required, enter the request body in the appropriate format (JSON in this case).
+In the Tests tab, write the assertions that need to be tested for the API call.
+Save the request in Postman and run the test.
+Here's an example of how you can create the first test case in Postman:
+
+Open Postman and create a new request.
+Set the request type to GET and enter the URL: http://dummy.restapiexample.com/api/v1/employees.
+In the Tests tab, write the following assertions:
+scss
+Copy code
+pm.response.to.have.status(200);
+pm.expect(pm.response.responseTime).to.be.below(500);
+pm.response.to.have.jsonBody();
+Save the request and name it "Get All Employees".
+Click the "Send" button to run the test and see the results.
+You can follow a similar process to create the remaining test cases. Simply modify the request type, request body, and assertions as needed for each test case.
+
+
+
+
+
+
+
